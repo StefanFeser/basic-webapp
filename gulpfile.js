@@ -14,6 +14,9 @@ gulp.task('babel', () => {
 gulp.task('sass', function () {
     gulp.src('./scss/styles.scss')
     .pipe(plugins.sass().on('error', plugins.sass.logError))
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.autoprefixer('last 3 version'))
+    .pipe(plugins.sourcemaps.write('./'))
     .pipe(gulp.dest('./assets/css'));
 });
 
