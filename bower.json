@@ -1,0 +1,35 @@
+{
+    "name": "basic-webapp",
+    "version": "0.1.1",
+    "homepage": "https://github.com/StefanFeser/basic-webapp",
+    "authors": [
+        "Stefan Feser <stefan@feelleicht.de>"
+    ],
+    "description": "My personal basic web app to kickstart a new app",
+    "main": "index.html",
+    "moduleType": [
+        "es6",
+        "node"
+    ],
+    "keywords": [
+        "web",
+        "app",
+        "basics",
+        "stefan",
+        "feser",
+        "angular"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "assets/components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "normalize-scss": null
+    }
+}

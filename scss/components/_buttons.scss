@@ -1,0 +1,14 @@
+.btn {
+    background: none;
+    border: none;
+    background-color: $color-ci;
+    color: white;
+    height: 55px;
+    line-height: 55px;
+    vertical-align: top;
+    padding: 0 3%;
+    width: 100%;
+    font-size: 1.3em;
+
+    transition: all .2s ease;
+}

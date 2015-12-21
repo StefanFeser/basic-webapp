@@ -1,0 +1,10 @@
+// ****** Components ******
+// -----------------------------------------
+@import '../assets/components/normalize-scss/_normalize.scss';
+
+// ****** Others ******
+// -----------------------------------------
+@import 'base/base.scss';
+@import 'components/components.scss';
+@import 'utils/utils.scss';
+@import 'modules/modules.scss';

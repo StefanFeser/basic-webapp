@@ -1,0 +1,59 @@
+html {
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html, body {
+    height: 100%;
+}
+body {
+    background: $color-bg-body;
+
+    color: $color-font-standard;
+    font-family: $font-family-webfont;
+    font-style: normal;
+    font-weight: 300;
+    font-size: $font-size-standard;
+    line-height: 1;
+}
+
+a { 
+    color: $color-ci; 
+}   
+a:visited { 
+    color: $color-ci; 
+} 
+a:hover { 
+    color: $color-ci; 
+} 
+a:active  { 
+    color: $color-ci; 
+} 
+
+::-moz-selection {
+    background: $color-bg-selection;
+    color: $color-font-selection;
+}
+
+::selection {
+    background: $color-bg-selection;
+    color: $color-font-selection;
+}
+
+/*
+ * Clearfix for floats
+ */
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}

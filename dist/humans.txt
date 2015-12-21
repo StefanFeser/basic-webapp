@@ -1,0 +1,9 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+                          
+    Your title: Stefan Feser                          
+    Site: http://feelleicht.com                       
+    Twitter: @stefanfeser
+

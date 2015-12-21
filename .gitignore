@@ -1,0 +1,66 @@
+############################################
+# Basic Web Apps specifics
+############################################
+
+/node_modules/
+/assets/components/
+
+############################################
+# Standards for OS, IDEs etc.
+############################################
+
+### OSX
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+### Editor swap files
+*.swp
+
+### Vim
+.*.sw[a-z]
+*.un~
+Session.vim
+
+###Eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+
+### SASS
+.sass-cache
+
+### Zend
+INSTALL.txt
+LICENSE.txt
+demos/
+extras/documentation
+
+### Sublime
+sftp-config.json
+
+### PHPStorm
+.idea
+
+### Linux
+*~
+
+### vagrant
+.vagrant
+.shell_history
