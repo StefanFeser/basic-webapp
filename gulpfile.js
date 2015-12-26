@@ -3,12 +3,14 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins         = gulpLoadPlugins();
 var wiredep         = require('wiredep').stream;
 var allScssFiles    = './scss/**/*.scss';
+var pngquant        = require('imagemin-pngquant');
+var del             = require('del');
 
 /*
  * Compiling/Transpiling ES20XX to Javascript
  */
 gulp.task('babel', () => {
-    return gulp.src('app/app.js')
+    return gulp.src('app/**/*.js')
         .pipe(plugins.babel({
             presets: ['es2015']
         }))
@@ -52,13 +54,72 @@ gulp.task('bower-install', function () {
  * Watch js & sass changes
  */
 gulp.task('watch', function () {
-    gulp.watch('app/app.js', ['babel']);
+    gulp.watch('app/**/*.js', ['babel']);
     gulp.watch(allScssFiles, ['sass']);
+    gulp.watch('assets/js/**/*.js', ['injectJS']);
 });
 
+/*
+ * BUILD DISTRIBUTION DIRECTORY
+ * - clean dist folder
+ * - concat & minify all JS files
+ * - minify CSS files
+ * - optimize images
+ * - generate css report
+ */
+gulp.task('usemin', function() {
+  return gulp.src('./index.html')
+    .pipe(plugins.usemin({
+        css: [ plugins.cssnano(), plugins.rev() ],
+        html: [ plugins.htmlmin({ empty: true }) ],
+        js: [ plugins.uglify(), plugins.rev() ]
+    }))
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('imagemin', () => {
+    return gulp.src('assets/images/**/*')
+        .pipe(plugins.imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('dist/assets/images'));
+});
+
+gulp.task('clean', function () {
+    del.sync([
+        'dist/**/*',
+        '!dist/crossdomain.xml',
+        '!dist/humans.txt',
+        '!dist/robots.txt',
+    ]);
+});
+
+gulp.task('parker', function() {
+    return gulp.src('assets/css/styles.css')
+        .pipe(plugins.parker({
+            file: 'css-report.md',
+            title: 'CSS Report'
+        }));
+});
+
+/*
+ * TASKS TO INVOKE
+ */
 gulp.task('default', [
     'injectJS', 
     'sass', 
     'babel', 
     'watch'
+]);
+
+gulp.task('build', [
+    'clean',
+    'injectJS', 
+    'sass', 
+    'babel',
+    'parker', 
+    'imagemin',
+    'usemin'
 ]);
