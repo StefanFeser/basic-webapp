@@ -1,0 +1,48 @@
+/*
+ * Media Queries
+ */
+@mixin smartphone-p {
+    @media (max-width: #{$smartphone-p-width}) {
+        @content;
+    }
+}
+@mixin smartphone-wide {
+    @media (max-width: #{$smartphone-lc-width}) {
+        @content;
+    }
+}
+@mixin smartphone-lc {
+    @media (max-width: #{$smartphone-lc-width}) and (orientation: landscape) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+@mixin desktop-s {
+    @media (max-width: #{$desktop-s}) {
+        @content;
+    }
+}
+@mixin desktop-sm {
+    @media (max-width: #{$desktop-sm}) {
+        @content;
+    }
+}
+@mixin desktop-m {
+    @media (max-width: #{$desktop-m}) {
+        @content;
+    }
+}
+@mixin desktop-ml {
+    @media (max-width: #{$desktop-ml}) {
+        @content;
+    }
+}
+@mixin desktop-l {
+    @media (min-width: #{$desktop-l}) {
+        @content;
+    }
+}

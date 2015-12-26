@@ -24,3 +24,14 @@ $color-font-placeholder:lighten($color-font-lighter, 10%);
 $color-link-standard:   $color-ci;
 $color-link-hover:      $color-ci;
 $color-link-visited:    $color-ci;
+
+// ****** Breakpoints ******
+// -----------------------------------------
+$smartphone-p-width:    480px;
+$smartphone-lc-width:   667px;
+$tablet-width:          768px;
+$desktop-s:             980px;
+$desktop-sm:            1024px;
+$desktop-m:             1100px;
+$desktop-ml:            1300px;
+$desktop-l:             1900px;
