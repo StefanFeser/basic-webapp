@@ -19,7 +19,7 @@ I use SASS (http://sass-lang.com) as CSS Preprocessor.
 Installation
 ============
 
-You need to have Bower (http://bower.io) and NPM (node.js - http://nodejs.org) installed.
+You need to have Bower (http://bower.io), Gulp (http://gulpjs.com/) and NPM (node.js - http://nodejs.org) installed.
 
 1.) Clone this repository:
 ```
