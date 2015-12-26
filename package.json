@@ -25,26 +25,26 @@
   },
   "homepage": "https://github.com/StefanFeser/basic-webapp#readme",
   "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-babel": "^6.1.1",
-    "gulp-cssnano": "^2.0.0",
-    "gulp-htmlmin": "^1.3.0",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-inject": "^3.0.0",
-    "gulp-load-plugins": "^1.1.0",
-    "gulp-parker": "^0.1.4",
-    "gulp-rev": "^6.0.1",
-    "gulp-sass": "^2.1.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-usemin": "^0.3.16",
-    "gulp-watch": "^4.3.5",
-    "wiredep": "^3.0.0"
+    "babel-preset-es2015": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-babel": "*",
+    "gulp-cssnano": "*",
+    "gulp-htmlmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-inject": "*",
+    "gulp-load-plugins": "*",
+    "gulp-parker": "*",
+    "gulp-rev": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-usemin": "*",
+    "gulp-watch": "*",
+    "wiredep": "*"
   },
   "dependencies": {
-    "imagemin-pngquant": "^4.2.0"
+    "imagemin-pngquant": "*"
   }
 }
