@@ -2,7 +2,7 @@ var gulp            = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins         = gulpLoadPlugins();
 var wiredep         = require('wiredep').stream;
-var allScssFiles    = './scss/**/*.scss';
+var allScssFiles    = 'scss/**/*.scss';
 var pngquant        = require('imagemin-pngquant');
 var del             = require('del');
 
