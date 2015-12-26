@@ -40,8 +40,12 @@ bower install
 npm install
 ```
 
+4.) Inject bower components in index.html
+```
+gulp bower-install
+```
 
-4.) Run gulp
+5.) Run gulp
 ```
 gulp
 ```
