@@ -37,7 +37,7 @@ gulp.task('injectJS', function () {
     var target = gulp.src('./index.html'); 
     var sources = gulp.src(['./assets/js/**/*.js'], {read: false});
 
-    return target.pipe(plugins.inject(sources))
+    return target.pipe(plugins.inject(sources, {relative: true}))
     .pipe(gulp.dest('./'));
 });
 
