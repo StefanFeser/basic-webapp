@@ -29,13 +29,13 @@ cd basic-webapp
 ```
 
 
-2.) Install Bower components
+2.) Install bower components
 ```
 bower install
 ```
 
 
-3.) Install Grunt modules/tasks
+3.) Install gulp modules/tasks
 ```
 npm install
 ```
