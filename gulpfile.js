@@ -17,6 +17,25 @@ gulp.task('babel', () => {
         .pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('lint', () => {
+    return gulp.src(['app/**/*.js','!node_modules/**'])
+        .pipe(plugins.eslint({
+            rules: {
+                'strict': 2
+            },
+            globals: [
+                'jQuery',
+                '$'
+            ],
+            envs: [
+                'browser'
+            ]
+        }))
+        .pipe(plugins.eslint.format())
+        .pipe(plugins.eslint.failAfterError())
+        .on("error", plugins.notify.onError('ES Lint error!'));
+});
+
 /*
  * Compiling SASS to CSS
  */
@@ -54,7 +73,7 @@ gulp.task('bower-install', function () {
  * Watch js & sass changes
  */
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.js', ['babel']);
+    gulp.watch('app/**/*.js', ['lint', 'babel']);
     gulp.watch(allScssFiles, ['sass']);
     gulp.watch('assets/js/**/*.js', ['injectJS']);
 });
@@ -109,7 +128,8 @@ gulp.task('parker', function() {
  */
 gulp.task('default', [
     'injectJS', 
-    'sass', 
+    'sass',
+    'lint', 
     'babel', 
     'watch'
 ]);
@@ -117,7 +137,8 @@ gulp.task('default', [
 gulp.task('build', [
     'clean',
     'injectJS', 
-    'sass', 
+    'sass',
+    'lint', 
     'babel',
     'parker', 
     'imagemin',

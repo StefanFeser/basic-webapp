@@ -31,10 +31,12 @@
     "gulp-autoprefixer": "*",
     "gulp-babel": "*",
     "gulp-cssnano": "*",
+    "gulp-eslint": "^3.0.1",
     "gulp-htmlmin": "*",
     "gulp-imagemin": "*",
     "gulp-inject": "*",
     "gulp-load-plugins": "*",
+    "gulp-notify": "^2.2.0",
     "gulp-parker": "*",
     "gulp-rev": "*",
     "gulp-sass": "*",
@@ -42,9 +44,7 @@
     "gulp-uglify": "*",
     "gulp-usemin": "*",
     "gulp-watch": "*",
+    "imagemin-pngquant": "*",
     "wiredep": "*"
-  },
-  "dependencies": {
-    "imagemin-pngquant": "*"
   }
 }
