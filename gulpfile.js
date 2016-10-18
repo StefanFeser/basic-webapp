@@ -1,27 +1,51 @@
 var gulp            = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins         = gulpLoadPlugins();
-var wiredep         = require('wiredep').stream;
 var allScssFiles    = 'scss/**/*.scss';
 var pngquant        = require('imagemin-pngquant');
 var del             = require('del');
 
+var source          = require('vinyl-source-stream');
+var buffer          = require('vinyl-buffer');
+var browserify      = require('browserify');
+var watchify        = require('watchify');
+var babel           = require('babelify');
+
+
 /*
- * Compiling/Transpiling ES20XX to Javascript
+ * Using browserify + babelify to bundle all JS files
  */
-gulp.task('babel', () => {
-    return gulp.src('app/**/*.js')
-        .pipe(plugins.babel({
-            presets: ['es2015']
-        }))
-        .pipe(gulp.dest('assets/js'));
+function compileModules() {
+    var bundler = browserify('./app/app.js', { debug: true }).transform(babel);
+
+    function rebundle() {
+        bundler.bundle()
+            .on('error', function(err) { console.error(err); this.emit('end'); })
+            .pipe(source('build.js'))
+            .pipe(buffer())
+            .pipe(plugins.sourcemaps.init({ loadMaps: true }))
+            .pipe(plugins.sourcemaps.write('./'))
+            .pipe(gulp.dest('./assets/js/build'));
+    }
+
+    rebundle();
+}
+
+gulp.task('browserify', function() { 
+    return compileModules(); 
 });
 
+/*
+ * Lint JS/ES6 Files
+ */
 gulp.task('lint', () => {
     return gulp.src(['app/**/*.js','!node_modules/**'])
         .pipe(plugins.eslint({
             rules: {
-                'strict': 2
+                'strict': 2,
+            },
+            parserOptions: {
+                "sourceType": "module"
             },
             globals: [
                 'jQuery',
@@ -49,33 +73,11 @@ gulp.task('sass', function () {
 });
 
 /*
- * Automatically inject all javascript files in assets/js
- * into index.html
- */
-gulp.task('injectJS', function () {
-    var target = gulp.src('./index.html'); 
-    var sources = gulp.src(['./assets/js/**/*.js'], {read: false});
-
-    return target.pipe(plugins.inject(sources, {relative: true}))
-    .pipe(gulp.dest('./'));
-});
-
-/*
- * Inject all bower JS dependencies into index.html
- */
-gulp.task('bower-install', function () {
-    gulp.src('./index.html')
-    .pipe(wiredep())
-    .pipe(gulp.dest('./'));
-});
-
-/*
  * Watch js & sass changes
  */
 gulp.task('watch', function () {
-    gulp.watch('app/**/*.js', ['lint', 'babel']);
+    gulp.watch('app/**/*.js', ['lint', 'browserify']);
     gulp.watch(allScssFiles, ['sass']);
-    gulp.watch('assets/js/**/*.js', ['injectJS']);
 });
 
 /*
@@ -127,19 +129,17 @@ gulp.task('parker', function() {
  * TASKS TO INVOKE
  */
 gulp.task('default', [
-    'injectJS', 
     'sass',
-    'lint', 
-    'babel', 
+    'lint',
+    'browserify',
     'watch'
 ]);
 
 gulp.task('build', [
-    'clean',
-    'injectJS', 
+    'clean', 
     'sass',
-    'lint', 
-    'babel',
+    'lint',
+    'browserify',
     'parker', 
     'imagemin',
     'usemin'
