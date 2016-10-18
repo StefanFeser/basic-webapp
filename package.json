@@ -1,6 +1,6 @@
 {
   "name": "basic-webapp",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "My personal basic web app to kickstart a new app",
   "main": "index.html",
   "scripts": {
