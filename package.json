@@ -16,27 +16,39 @@
     "vanilla",
     "javascript",
     "es2015",
-    "es6"
+    "es6",
+    "browserify",
+    "babel"
   ],
   "author": "Stefan Feser",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/StefanFeser/basic-webapp/issues"
   },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": ["es2015"]
+        }
+      ]
+    ]
+  },
   "homepage": "https://github.com/StefanFeser/basic-webapp#readme",
   "devDependencies": {
     "babel-preset-es2015": "*",
+    "babelify": "*",
+    "browserify": "*",
     "del": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
-    "gulp-babel": "*",
     "gulp-cssnano": "*",
-    "gulp-eslint": "^3.0.1",
+    "gulp-eslint": "*",
     "gulp-htmlmin": "*",
     "gulp-imagemin": "*",
-    "gulp-inject": "*",
     "gulp-load-plugins": "*",
-    "gulp-notify": "^2.2.0",
+    "gulp-notify": "*",
     "gulp-parker": "*",
     "gulp-rev": "*",
     "gulp-sass": "*",
@@ -45,6 +57,8 @@
     "gulp-usemin": "*",
     "gulp-watch": "*",
     "imagemin-pngquant": "*",
-    "wiredep": "*"
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
   }
 }
