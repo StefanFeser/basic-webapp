@@ -3,7 +3,7 @@ Stefan Feser's Basic Webapp
 
 My personal basic vanilla web app to kickstart a new app.
 
-I'm playing around with ES2015, Babel and gulp. I don't use any components or frameworks in this repository. [Only VanillaJS](http://vanilla-js.com/)
+I'm playing around with ES2015, Babel, Browserify and gulp. I don't use any components or frameworks in this repository. [Only VanillaJS](http://vanilla-js.com/)
 
 Feel free to use and modify it.
 
@@ -13,6 +13,8 @@ There are already some basic components included:
 
 * Normalize-SCSS
 * Gulp
+* Browserify
+* Babel
 
 I use SASS (http://sass-lang.com) as CSS Preprocessor.
 
